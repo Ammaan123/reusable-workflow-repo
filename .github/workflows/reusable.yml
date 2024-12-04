@@ -1,0 +1,20 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+      greeting:
+        required: false
+        type: string
+        default: Hello
+
+jobs:
+  reusable_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Inputs
+        run: echo "${{ inputs.greeting }} ${{ inputs.name }}!"
